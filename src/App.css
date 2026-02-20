@@ -1,0 +1,186 @@
+/* Обнуление стилей Vite */
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #242424; /* Темно-серый фон всей страницы */
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.todo-container {
+  background: #1a1a1a; /* Темный фон как на скрине */
+  border-radius: 15px;
+  padding: 25px;
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Заголовок */
+h1 {
+  font-size: 2.5rem;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+/* Статистика */
+.stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+/* Фильтры */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  background: #2a2a2a;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filters button.active {
+  background: #ffffff;
+  color: #000;
+}
+
+/* Форма добавления (выстраиваем в ряд) */
+.todo-form {
+  display: flex;
+  flex-wrap: wrap; /* Чтобы на узких экранах переносилось */
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.todo-form input[type="text"] {
+  flex: 1;
+  min-width: 150px;
+  background: #2a2a2a;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.date-input {
+  background: #2a2a2a;
+  border: 1px solid #333;
+  padding: 8px;
+  border-radius: 8px;
+  color: white;
+  color-scheme: dark;
+}
+
+.todo-form button {
+  background: #2a2a2a;
+  border: none;
+  color: #a855f7; /* Сиреневый плюс */
+  font-size: 1.5rem;
+  padding: 0 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Список задач */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-text {
+  font-size: 1.1rem;
+}
+
+.task-date {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* Кнопка удаления */
+.delete-btn {
+  background: #2a2a2a;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.completed .task-text {
+  text-decoration: line-through;
+  color: #555;
+}
+/* Указатель-рука при наведении на задачу и кнопки */
+.task-list li, 
+.task-info,
+.task-info span,
+.filters button,
+.delete-btn,
+form button {
+  cursor: pointer;
+}
+
+/* Запрет выделения текста, чтобы при кликах не появлялась каретка */
+.task-text {
+  user-select: none;
+}
+
+/* Исправляем отступ для иконки корзины, чтобы она была по центру */
+.delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #333;
+}
+
+/* Чтобы инпуты не слипались на мобилках */
+@media (max-width: 400px) {
+  .todo-form {
+    flex-direction: column;
+  }
+  .date-input, .todo-form input[type="text"] {
+    width: 100%;
+  }
+}
